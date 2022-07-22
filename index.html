@@ -44,7 +44,8 @@
         sequel</span
       >
       <span class="block mx-auto text-center my-3">
-        just click on the checkbox to mark the side mission as completed
+        just click on the checkbox to mark the side mission as completed. Data
+        is saved only locally even if you close the tab.
       </span>
       <div class="table mx-auto bb_table w-11/12 md:w-8/12 border-0">
         <div class="bb_table_tr">
@@ -307,50 +308,314 @@
           <div class="bb_table_td">7</div>
           <div class="bb_table_td">Let's Build a Robot Army</div>
           <div class="bb_table_td">
-            Sub-level 13<br />Sub-Level 13: Part 2<br />The Voyage of Captain
-            Chef
+            <span id="sublevel13">Sub-level 13 </span
+            ><input
+              id="sublevel13Checkbox"
+              for="sublevel13"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="sublevel13p2">Sub-Level 13: Part 2 </span
+            ><input
+              id="sublevel13p2Checkbox"
+              for="sublevel13p2"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="voyageOfCaptainChef"
+              >The Voyage of Captain Chef </span
+            ><input
+              id="voyageOfCaptainChefCheckbox"
+              for="voyageOfCaptainChef"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
           </div>
         </div>
         <div class="bb_table_tr">
           <div class="bb_table_td">8</div>
           <div class="bb_table_td">Home Sweet Home</div>
           <div class="bb_table_td">
-            Hot Head<br />Voice Over<br />Boarding Party<br />An Urgent
-            Message<br />Handsome AI<br />Paint Job<br />Kill Meg
+            <span id="hotHead">Hot Head </span
+            ><input
+              id="hotHeadCheckbox"
+              for="hotHead"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="voiceOver">Voice Over </span
+            ><input
+              id="voiceOverCheckbox"
+              for="voiceOver"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="boardingParty">Boarding Party </span
+            ><input
+              id="boardingPartyCheckbox"
+              for="boardingParty"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br />
+            <span id="urgentMessage">An Urgent Message </span
+            ><input
+              id="urgentMessageCheckbox"
+              for="urgentMessage"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br />
+            <span id="handsomeAI">Handsome AI </span
+            ><input
+              id="handsomeAICheckbox"
+              for="handsomeAI"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="paintJob">Paint Job </span
+            ><input
+              id="paintJobCheckbox"
+              for="paintJob"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="killMeg">Kill Meg </span
+            ><input
+              id="killMegCheckbox"
+              for="killMeg"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
           </div>
         </div>
         <div class="bb_table_tr">
           <div class="bb_table_td">9</div>
           <div class="bb_table_td">Science and Violence</div>
           <div class="bb_table_td">
-            Infinite Loop<br />Fresh Air<br />It Ain't Rocket Surgery<br />Lab
-            19<br />Cleanliness Uprising
+            <span id="infiniteLoop">Infinite Loop</span
+            ><input
+              id="infiniteLoopCheckbox"
+              for="infiniteLoop"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="freshAir">Fresh Air </span
+            ><input
+              id="freshAirCheckbox"
+              for="freshAir"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="aintRocketSurgery">It Ain't Rocket Surgery </span
+            ><input
+              id="aintRocketSurgeryCheckbox"
+              for="aintRocketSurgery"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br />
+            <span id="lab19">Lab 19 </span
+            ><input
+              id="lab19Checkbox"
+              for="lab19"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br />
+            <span id="cleanlinessUprising">Cleanliness Uprising </span
+            ><input
+              id="cleanlinessUprisingCheckbox"
+              for="cleanlinessUprising"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
           </div>
         </div>
         <div class="bb_table_tr">
           <div class="bb_table_td">10</div>
           <div class="bb_table_td">Watch Your Step</div>
           <div class="bb_table_td">
-            Red, Then Dead<br />Things That Go Boom<br />To the Moon<br />Lock
-            and Load<br />Quarantine: Back On Schedule<br />Quarantine:
-            Infestation<br />In Perfect Hibernation<br />Trouble with Space
-            Hurps<br />Don't Get Cocky<br />Eradicate!
+            <span id="redThenDead" class=""> Red, Then Dead </span>
+            <input
+              id="redThenDeadCheckbox"
+              for="redThenDead"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br />
+            <span id="thingsThatGoBoom" class=""> Things That Go Boom </span>
+            <input
+              id="thingsThatGoBoomCheckbox"
+              for="thingsThatGoBoom"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+            <br />
+            <span id="toTheMoon" class="">To the Moon </span
+            ><input
+              id="toTheMoonCheckbox"
+              for="toTheMoon"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+            <br />
+            <span id="lockAndLoad" class=""> Lock and Load </span
+            ><input
+              id="lockAndLoadCheckbox"
+              for="lockAndLoad"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+            <br />
+            <span id="backOnSchedule" class=""
+              >Quarantine: Back On Schedule </span
+            ><input
+              id="backOnScheduleCheckbox"
+              for="backOnSchedule"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+            <br /><span id="infestation" class="">Quarantine: Infestation </span
+            ><input
+              id="infestationCheckbox"
+              for="infestation"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="perfectHibernation" class=""
+              >In Perfect Hibernation </span
+            ><input
+              id="perfectHibernationCheckbox"
+              for="perfectHibernation"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="troubleWithSpaceHurps" class=""
+              >Trouble with Space Hurps
+            </span>
+            <input
+              id="troubleWithSpaceHurpsCheckbox"
+              for="troubleWithSpaceHurps"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="dontGetCocky" class="">Don't Get Cocky </span
+            ><input
+              id="dontGetCockyCheckbox"
+              for="dontGetCocky"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="eradicate" class="">Eradicate! </span
+            ><input
+              id="eradicateCheckbox"
+              for="eradicate"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
           </div>
         </div>
         <div class="bb_table_tr">
           <div class="bb_table_td">11</div>
           <div class="bb_table_td">Eye to Eye</div>
           <div class="bb_table_td">
-            Picking Up the Pieces<br />These are the Bots<br />The Don<br />Return
-            of Captain Chef <br />Don't Shoot the Messenger<br />Z8N-TP
+            <span id="pickingUpThePieces" class="">
+              Picking Up the Pieces
+            </span>
+            <input
+              id="pickingUpThePiecesCheckbox"
+              for="pickingUpThePieces"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br />
+            <span id="theseAreTheBots" class=""> These are the Bots </span>
+            <input
+              id="theseAreTheBotsCheckbox"
+              for="theseAreTheBots"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+            <br />
+            <span id="theDon" class="">The Don </span
+            ><input
+              id="theDonCheckbox"
+              for="theDon"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+            <br />
+            <span id="returnOfCaptainChef" class="">
+              Return of Captain Chef </span
+            ><input
+              id="returnOfCaptainChefCheckbox"
+              for="returnOfCaptainChef"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+            <br />
+            <span id="dontShootTheMessenger" class=""
+              >Don't Shoot the Messenger</span
+            ><input
+              id="dontShootTheMessengerCheckbox"
+              for="dontShootTheMessenger"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+            <br /><span id="z8ntp" class="">Z8N-TP </span
+            ><input
+              id="z8ntpCheckbox"
+              for="z8ntp"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
           </div>
         </div>
         <div class="bb_table_tr">
           <div class="bb_table_td">12</div>
           <div class="bb_table_td">The Beginning of the End</div>
           <div class="bb_table_td">
-            The Bestest Story Ever Told<br />Guardian Hunter<br />Sterwin
-            Forever
+            <span id="bestestStoryEverTold" class="">
+              The Bestest Story Ever Told
+            </span>
+            <input
+              id="bestestStoryEverToldCheckbox"
+              for="bestestStoryEverTold"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br />
+            <span id="guardianHunter" class="">Guardian Hunter </span>
+            <input
+              id="guardianHunterCheckbox"
+              for="guardianHunter"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+            <br />
+            <span id="sterwinForever" class="">Sterwin Forever </span
+            ><input
+              id="sterwinForeverCheckbox"
+              for="sterwinForever"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
           </div>
         </div>
       </div>
