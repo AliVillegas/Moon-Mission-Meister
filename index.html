@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Side missions tracker Pre sequel</title>
+    <meta
+      name="description"
+      content="A simple HTML5 Template for new projects."
+    />
+    <meta name="author" content="SitePoint" />
+
+    <meta property="og:title" content="A Basic HTML5 Template" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.sitepoint.com/a-basic-html5-template/"
+    />
+    <meta
+      property="og:description"
+      content="A simple HTML5 Template for new projects."
+    />
+    <meta property="og:image" content="image.png" />
+
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="css/styles.css?v=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body onload="loadMissions()">
+    <div class="headerText text text-center mx-auto p-3">
+      Small tool made by Ali Villegas 2022
+      <a
+        class="link text-blue-500"
+        href="https://github.com/AliVillegas/Moon-Mission-Meister"
+        >github:</a
+      >
+      <br />
+      <br /><br />
+      just click on the checkbox to mark the side mission as completed
+      <br />
+      * no data is collected and the site is open source
+    </div>
+
+    <div class="subSectionDesc my-16">
+      <div class="table mx-auto bb_table w-8/12 border-0">
+        <div class="bb_table_tr">
+          <div class="bb_table_th">#</div>
+          <div class="bb_table_th">Main Missions</div>
+          <div class="bb_table_th">Side-Missions</div>
+        </div>
+        <div class="bb_table_tr">
+          <div class="bb_table_td">1</div>
+          <div class="bb_table_td">Welcome to Helios</div>
+          <div class="bb_table_td"></div>
+        </div>
+        <div class="bb_table_tr">
+          <div class="bb_table_td">2</div>
+          <div class="bb_table_td">Lost Legion Invasion</div>
+          <div class="bb_table_td">
+            <span id="landAmongStars" class="">Land Among the Stars</span>
+            <input
+              id="landAmongStarsCheckbox"
+              for="landAmongStars"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br />
+            <span id="followYourHeart" class="">follow your heart</span>
+            <input
+              id="followYourHeartCheckbox"
+              for="followYourHeart"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+            <br />
+            <span id="talesFromElpis" class="">Tales from Elpis</span>
+            <input
+              id="talesFromElpisCheckbox"
+              for="talesFromElpis"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br />
+            <span id="lastRequests" class="">Last Requests</span>
+            <input
+              id="lastRequestsCheckbox"
+              for="lastRequests"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+          </div>
+        </div>
+        <div class="bb_table_tr">
+          <div class="bb_table_td">3</div>
+          <div class="bb_table_td">Marooned</div>
+          <div class="bb_table_td">
+            <span id="novaNoProblem" class="">Nova? No Problem!</span>
+            <input
+              id="novaNoProblemCheckbox"
+              for="novaNoProblem"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br />
+            <span id="torgueOTorgueO" class=""> Torgue-o! Torgue-o!</span>
+            <input
+              id="torgueOTorgueOCheckbox"
+              for="torgueOTorgueO"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+          </div>
+        </div>
+        <div class="bb_table_tr">
+          <div class="bb_table_td">4</div>
+          <div class="bb_table_td">Systems Jammed</div>
+          <div class="bb_table_td">
+            <span id="whereforeArtThou" class=""> Wherefore Art Thou?</span>
+            <input
+              id="whereforeArtThouCheckbox"
+              for="whereforeArtThou"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br />
+            <span id="theEmptyBillabong" class=""> The Empty Billabong</span>
+            <input
+              id="theEmptyBillabongCheckbox"
+              for="theEmptyBillabong"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br />
+            <span id="allTheLittleCreatures" class="">
+              All the Little Creatures</span
+            ><input
+              id="allTheLittleCreaturesCheckbox"
+              for="allTheLittleCreatures"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br />
+            <span id="recruitmentDrive" class=""> Recruitment Drive</span>
+            <input
+              id="recruitmentDriveCheckbox"
+              for="recruitmentDrive"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+          </div>
+        </div>
+        <div class="bb_table_tr">
+          <div class="bb_table_td">5</div>
+          <div class="bb_table_td">A New Direction</div>
+          <div class="bb_table_td">
+            <span id="bunchOfIceHoles" class=""> Bunch Of Ice Holes</span>
+            <input
+              id="bunchOfIceHolesCheckbox"
+              for="bunchOfIceHoles"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br />
+            <span id="grinders" class=""> Grinders</span>
+            <input
+              id="grindersCheckbox"
+              for="grinders"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+            <br />
+            <span id="popRacing" class="">Pop Racing</span
+            ><input
+              id="popRacingCheckbox"
+              for="popRacing"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+            <br />
+            <span id="toArms" class=""> To Arms! </span
+            ><input
+              id="toArmsCheckbox"
+              for="toArms"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+            <br />
+            <span id="zapped1" class="">Zapped 1.0 </span
+            ><input
+              id="zapped1Checkbox"
+              for="zapped1"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+            <br /><span id="zapped2" class="">Zapped 2.0 </span
+            ><input
+              id="zapped2Checkbox"
+              for="zapped2"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="zapped3" class="">Zapped 3.0 </span
+            ><input
+              id="zapped3Checkbox"
+              for="zapped3"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="boomshakalaka" class="">Boomshakalaka </span>
+            <input
+              id="boomshakalakaCheckbox"
+              for="boomshakalaka"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="spaceSlam" class="">Space Slam </span
+            ><input
+              id="spaceSlamCheckbox"
+              for="spaceSlam"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+          </div>
+        </div>
+        <div class="bb_table_tr">
+          <div class="bb_table_td">6</div>
+          <div class="bb_table_td">
+            Intelligences of the Artificial Persuasion
+          </div>
+          <div class="bb_table_td">
+            <span id="theSecretChamber">The Secret Chamber </span
+            ><input
+              id="theSecretChamberCheckbox"
+              for="theSecretChamber"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="wipingTheSlate">Wiping the Slate </span
+            ><input
+              id="wipingTheSlateCheckbox"
+              for="wipingTheSlate"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="noSuchThingAsAFreeLunch"
+              >No Such Thing as a Free Launch </span
+            ><input
+              id="noSuchThingAsAFreeLunchCheckbox"
+              for="noSuchThingAsAFreeLunch"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br />
+            <span id="nothingIsNeverAnOption">Nothing Is Never an Option </span
+            ><input
+              id="nothingIsNeverAnOptionCheckbox"
+              for="nothingIsNeverAnOption"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br />
+            <span id="treasuresOfEchoMadre">Treasures of ECHO Madre </span
+            ><input
+              id="treasuresOfEchoMadreCheckbox"
+              for="treasuresOfEchoMadre"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="anotherPickle">Another Pickle </span
+            ><input
+              id="anotherPickleCheckbox"
+              for="anotherPickle"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="roughLove">Rough Love </span
+            ><input
+              id="roughLoveCheckbox"
+              for="roughLove"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            /><br /><span id="homeDelivery">Home Delivery </span
+            ><input
+              id="homeDeliveryCheckbox"
+              for="homeDelivery"
+              class="checkbox p-4 pt-8"
+              type="checkbox"
+              onclick="strikeSideMission(this)"
+            />
+          </div>
+        </div>
+        <div class="bb_table_tr">
+          <div class="bb_table_td">7</div>
+          <div class="bb_table_td">Let's Build a Robot Army</div>
+          <div class="bb_table_td">
+            Sub-level 13<br />Sub-Level 13: Part 2<br />The Voyage of Captain
+            Chef
+          </div>
+        </div>
+        <div class="bb_table_tr">
+          <div class="bb_table_td">8</div>
+          <div class="bb_table_td">Home Sweet Home</div>
+          <div class="bb_table_td">
+            Hot Head<br />Voice Over<br />Boarding Party<br />An Urgent
+            Message<br />Handsome AI<br />Paint Job<br />Kill Meg
+          </div>
+        </div>
+        <div class="bb_table_tr">
+          <div class="bb_table_td">9</div>
+          <div class="bb_table_td">Science and Violence</div>
+          <div class="bb_table_td">
+            Infinite Loop<br />Fresh Air<br />It Ain't Rocket Surgery<br />Lab
+            19<br />Cleanliness Uprising
+          </div>
+        </div>
+        <div class="bb_table_tr">
+          <div class="bb_table_td">10</div>
+          <div class="bb_table_td">Watch Your Step</div>
+          <div class="bb_table_td">
+            Red, Then Dead<br />Things That Go Boom<br />To the Moon<br />Lock
+            and Load<br />Quarantine: Back On Schedule<br />Quarantine:
+            Infestation<br />In Perfect Hibernation<br />Trouble with Space
+            Hurps<br />Don't Get Cocky<br />Eradicate!
+          </div>
+        </div>
+        <div class="bb_table_tr">
+          <div class="bb_table_td">11</div>
+          <div class="bb_table_td">Eye to Eye</div>
+          <div class="bb_table_td">
+            Picking Up the Pieces<br />These are the Bots<br />The Don<br />Return
+            of Captain Chef <br />Don't Shoot the Messenger<br />Z8N-TP
+          </div>
+        </div>
+        <div class="bb_table_tr">
+          <div class="bb_table_td">12</div>
+          <div class="bb_table_td">The Beginning of the End</div>
+          <div class="bb_table_td">
+            The Bestest Story Ever Told<br />Guardian Hunter<br />Sterwin
+            Forever
+          </div>
+        </div>
+      </div>
+      <div style="clear: both"></div>
+    </div>
+
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
