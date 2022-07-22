@@ -4,4 +4,4 @@ Ultra minimalist tool to track side missions in Borderlands The presequel for th
 
 If you like my work please consider donating to me at https://paypal.me/AliBryan
 
-Deployed site: moonmissionmeister.netlify.app
+Deployed site: https://moonmissionmeister.netlify.app/
