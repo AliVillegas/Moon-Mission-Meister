@@ -23,15 +23,14 @@ function strikeSideMission(sideMissionData) {
     var xhr = new XMLHttpRequest();
     xhr.open(
       "GET",
-      "https://api.countapi.xyz/hit/localhost/personUsingMoonMeisterTracker"
+      "https://api.countapi.xyz/hit/localhost/personUsingMoonMeisterTrackerCounter"
     );
     xhr.responseType = "json";
     xhr.onload = function () {
-      console.log(`This button has been clicked ${this.response.value} times!`);
+      console.log(
+        `Estimated number of visitors using the tool: ${this.response.value}`
+      );
       estimatedVisitorsUsingTheTool = this?.response?.value;
-      document.getElementById(
-        "estimatedVisitorsUsingTheTool"
-      ).innerHTML = `Estimated number of visitors using the tool: ${this.response.value}`;
     };
     xhr.send();
     let missionsInLocalStorage = {};
@@ -47,7 +46,7 @@ function loadMissions() {
   var xhr = new XMLHttpRequest();
   xhr.open(
     "GET",
-    "https://api.countapi.xyz/hit/localhost/personVisitingMoonMeisterTracker"
+    "https://api.countapi.xyz/hit/localhost/personVisitingMoonMeisterTrackerCounter"
   );
   xhr.responseType = "json";
   xhr.onload = function () {
