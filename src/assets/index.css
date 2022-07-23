@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: url('/assets/background.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: rgb(87,86,101);
+background: linear-gradient(164deg, rgba(87,86,101,0.5) 0%, rgba(118,70,181,0.3) 16%, rgba(63,223,255,0.4) 100%);
+    
 }
 .bb_table {
     display: table;
-    background-color: rgba(255, 255, 255, 0.808);
     font-size: 14px;
 }
 .bb_table_th {
