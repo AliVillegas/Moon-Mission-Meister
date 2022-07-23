@@ -1,16 +1,20 @@
 <script>
 import Mission from "@/components/Mission.vue";
 import { missions } from "./missions";
+import * as sgMail from "@sendgrid/mail"
 
 const localStorageMissionsName = "missionsData";
 const localStorageUserInteractedWithSite = "interactedWithSite";
 
 const countApiNumOfVisitorsKeyUrl =
-  "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/visitorsMoonMeisterTracker";
+  "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/visitorsMoonMeisterTrackerCounter";
 const countApiNumOfActiveVisitorsKeyUrl =
-  "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/usersMoonMeisterTracker";
+  "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/usersMoonMeisterTrackerCounter";
 
-
+const SENDGRID_CRD = import.meta.env.VITE_SENDGRID_CRD;
+const SENDGRID_URL = import.meta.env.VITE_SENDGRID_URL;
+const SNDR_EMAIL = import.meta.env.VITE_SNDR_EMAIL;
+const TARG_EMAIL = import.meta.env.VITE_TARG_EMAIL;
 
 
 export default {
@@ -26,6 +30,46 @@ export default {
     let moonMeisterVisitors = null;
     let moonMeisterUsers = null;
 
+    /*
+         sends me a personal email with sendgrid
+         with the num of approx visitors of the site
+         and people that have clicked on at least one mission
+       */
+    function sendNumOfVisitorStats() {
+      console.log(SENDGRID_URL, SENDGRID_CRD,
+        SNDR_EMAIL,
+        TARG_EMAIL,
+        moonMeisterVisitors,
+        moonMeisterUsers)
+      if (
+        SENDGRID_URL &&
+        SENDGRID_CRD &&
+        SNDR_EMAIL &&
+        TARG_EMAIL &&
+        moonMeisterVisitors &&
+        moonMeisterUsers
+      ) {
+        console.log("Ready to send mail")
+        sgMail.setApiKey(SENDGRID_CRD)
+        let dataStats = {
+          to: TARG_EMAIL,
+          from: SNDR_EMAIL,
+          templateId: "d-3a0e4335e83544a1b55ea38f66a27f29",
+          dynamicTemplateData: {
+            moonMeisterVisitors,
+            moonMeisterUsers,
+          },
+        };
+        sgMail
+          .send(dataStats)
+          .then((response) => {
+            console.log("Sent number of visitors stats to email:", response);
+          })
+          .catch((error) => {
+            console.error(error)
+          })
+      }
+    }
     // count api call for estimate users that visited this tracker tool
     function saveNumOfVisitors() {
       fetch(countApiNumOfVisitorsKeyUrl)
@@ -51,6 +95,7 @@ export default {
             `Estimated number of times people have used this tracker tool: ${data?.value}`
           );
           moonMeisterUsers = data?.value;
+          sendNumOfVisitorStats(); // sending me a mail with the page stats
         });
     }
 
