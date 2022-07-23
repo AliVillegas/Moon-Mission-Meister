@@ -23,7 +23,7 @@ function strikeSideMission(sideMissionData) {
     var xhr = new XMLHttpRequest();
     xhr.open(
       "GET",
-      "https://api.countapi.xyz/hit/localhost/personUsingMoonMeisterTrackerCounter"
+      "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/personUsingMoonMeisterTrackerCounter"
     );
     xhr.responseType = "json";
     xhr.onload = function () {
@@ -46,7 +46,7 @@ function loadMissions() {
   var xhr = new XMLHttpRequest();
   xhr.open(
     "GET",
-    "https://api.countapi.xyz/hit/localhost/personVisitingMoonMeisterTrackerCounter"
+    "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/personVisitingMoonMeisterTrackerCounter"
   );
   xhr.responseType = "json";
   xhr.onload = function () {
