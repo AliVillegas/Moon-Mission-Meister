@@ -102,6 +102,7 @@ export default {
       );
       if (!missionsInLocalStorage) {
         saveNumOfVisitors();
+
         missionsData = missions;
         saveMissionDataToLocalStorage();
       }
