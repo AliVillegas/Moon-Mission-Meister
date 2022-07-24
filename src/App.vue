@@ -1,16 +1,21 @@
 <script>
 import Mission from "@/components/Mission.vue";
 import { missions } from "./missions";
+import * as sgMail from "@sendgrid/mail"
 
 const localStorageMissionsName = "missionsData";
 const localStorageUserInteractedWithSite = "interactedWithSite";
 
 const countApiNumOfVisitorsKeyUrl =
-  "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/visitorsMoonMeisterTracker";
+  "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/visitorsMoonMeisterTrackerJ";
 const countApiNumOfActiveVisitorsKeyUrl =
-  "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/usersMoonMeisterTracker";
+  "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/usersMoonMeisterTrackerJ";
 
-
+const SENDGRID_CRD = import.meta.env.VITE_SENDGRID_CRD;
+const SENDGRID_URL = import.meta.env.VITE_SENDGRID_URL;
+const GCF_URL = import.meta.env.VITE_GCF_URL;
+const SNDR_EMAIL = import.meta.env.VITE_SNDR_EMAIL;
+const TARG_EMAIL = import.meta.env.VITE_TARG_EMAIL;
 
 
 export default {
@@ -26,6 +31,40 @@ export default {
     let moonMeisterVisitors = null;
     let moonMeisterUsers = null;
 
+    /*
+         sends me a personal email with sendgrid
+         with the num of approx visitors of the site
+         and people that have clicked on at least one mission
+       */
+    function sendNumOfVisitorStats() {
+      if (
+        SENDGRID_URL &&
+        SENDGRID_CRD &&
+        SNDR_EMAIL &&
+        TARG_EMAIL &&
+        GCF_URL &&
+        moonMeisterVisitors &&
+        moonMeisterUsers
+      ) {
+        fetch(`https://${GCF_URL}`, {
+          method: 'POST',
+          Headers: {
+            Accept: 'application.json',
+            'Content-Type': 'application/json'
+          },
+          body: {
+            SENDGRID_URL,
+            SENDGRID_CRD,
+            SNDR_EMAIL,
+            moonMeisterVisitors,
+            moonMeisterUsers
+          }
+        }).then((res) => {
+
+          console.log(" fetch", res)
+        })
+      }
+    }
     // count api call for estimate users that visited this tracker tool
     function saveNumOfVisitors() {
       fetch(countApiNumOfVisitorsKeyUrl)
@@ -51,6 +90,7 @@ export default {
             `Estimated number of times people have used this tracker tool: ${data?.value}`
           );
           moonMeisterUsers = data?.value;
+          sendNumOfVisitorStats(); // sending me a mail with the page stats
         });
     }
 
