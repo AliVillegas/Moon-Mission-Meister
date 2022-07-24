@@ -1,7 +1,6 @@
 <script>
 import Mission from "@/components/Mission.vue";
 import { missions } from "./missions";
-import * as sgMail from "@sendgrid/mail"
 
 const localStorageMissionsName = "missionsData";
 const localStorageUserInteractedWithSite = "interactedWithSite";
@@ -11,11 +10,9 @@ const countApiNumOfVisitorsKeyUrl =
 const countApiNumOfActiveVisitorsKeyUrl =
   "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/usersMoonMeisterTrackerJ";
 
-const SENDGRID_CRD = import.meta.env.VITE_SENDGRID_CRD;
-const SENDGRID_URL = import.meta.env.VITE_SENDGRID_URL;
+
 const GCF_URL = import.meta.env.VITE_GCF_URL;
-const SNDR_EMAIL = import.meta.env.VITE_SNDR_EMAIL;
-const TARG_EMAIL = import.meta.env.VITE_TARG_EMAIL;
+
 
 
 export default {
@@ -38,10 +35,6 @@ export default {
        */
     function sendNumOfVisitorStats() {
       if (
-        SENDGRID_URL &&
-        SENDGRID_CRD &&
-        SNDR_EMAIL &&
-        TARG_EMAIL &&
         GCF_URL &&
         moonMeisterVisitors &&
         moonMeisterUsers
@@ -52,16 +45,12 @@ export default {
             Accept: 'application.json',
             'Content-Type': 'application/json'
           },
-          body: {
-            SENDGRID_URL,
-            SENDGRID_CRD,
-            SNDR_EMAIL,
+          body: JSON.stringify({
             moonMeisterVisitors,
             moonMeisterUsers
-          }
+          })
         }).then((res) => {
-
-          console.log(" fetch", res)
+          console.log(res)
         })
       }
     }
