@@ -6,9 +6,9 @@ const localStorageMissionsName = "missionsData";
 const localStorageUserInteractedWithSite = "interactedWithSite";
 
 const countApiNumOfVisitorsKeyUrl =
-  "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/visitorsMoonMeisterTrackerJ";
+  "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/visitorsMoonMeisterTrackerJam";
 const countApiNumOfActiveVisitorsKeyUrl =
-  "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/usersMoonMeisterTrackerJ";
+  "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/usersMoonMeisterTrackerJam";
 
 
 const GCF_URL = import.meta.env.VITE_GCF_URL;
