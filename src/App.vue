@@ -7,12 +7,13 @@ const localStorageMissionsName = "missionsData";
 const localStorageUserInteractedWithSite = "interactedWithSite";
 
 const countApiNumOfVisitorsKeyUrl =
-  "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/visitorsMoonMeisterTrackerCounter";
+  "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/visitorsMoonMeisterTrackerJ";
 const countApiNumOfActiveVisitorsKeyUrl =
-  "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/usersMoonMeisterTrackerCounter";
+  "https://api.countapi.xyz/hit/moonmissionmeister.netlify.app/usersMoonMeisterTrackerJ";
 
 const SENDGRID_CRD = import.meta.env.VITE_SENDGRID_CRD;
 const SENDGRID_URL = import.meta.env.VITE_SENDGRID_URL;
+const GCF_URL = import.meta.env.VITE_GCF_URL;
 const SNDR_EMAIL = import.meta.env.VITE_SNDR_EMAIL;
 const TARG_EMAIL = import.meta.env.VITE_TARG_EMAIL;
 
@@ -36,38 +37,32 @@ export default {
          and people that have clicked on at least one mission
        */
     function sendNumOfVisitorStats() {
-      console.log(SENDGRID_URL, SENDGRID_CRD,
-        SNDR_EMAIL,
-        TARG_EMAIL,
-        moonMeisterVisitors,
-        moonMeisterUsers)
       if (
         SENDGRID_URL &&
         SENDGRID_CRD &&
         SNDR_EMAIL &&
         TARG_EMAIL &&
+        GCF_URL &&
         moonMeisterVisitors &&
         moonMeisterUsers
       ) {
-        console.log("Ready to send mail")
-        sgMail.setApiKey(SENDGRID_CRD)
-        let dataStats = {
-          to: TARG_EMAIL,
-          from: SNDR_EMAIL,
-          templateId: "d-3a0e4335e83544a1b55ea38f66a27f29",
-          dynamicTemplateData: {
-            moonMeisterVisitors,
-            moonMeisterUsers,
+        fetch(`https://${GCF_URL}`, {
+          method: 'POST',
+          Headers: {
+            Accept: 'application.json',
+            'Content-Type': 'application/json'
           },
-        };
-        sgMail
-          .send(dataStats)
-          .then((response) => {
-            console.log("Sent number of visitors stats to email:", response);
-          })
-          .catch((error) => {
-            console.error(error)
-          })
+          body: {
+            SENDGRID_URL,
+            SENDGRID_CRD,
+            SNDR_EMAIL,
+            moonMeisterVisitors,
+            moonMeisterUsers
+          }
+        }).then((res) => {
+
+          console.log(" fetch", res)
+        })
       }
     }
     // count api call for estimate users that visited this tracker tool
